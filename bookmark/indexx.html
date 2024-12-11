@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BOOKMARKS </title>
+    <link rel="stylesheet" href="style.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- FONTAWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+
+    <!-- BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+   </head>
+<body>
+
+    <header class="header">
+
+    <div class="header-1">
+
+        <a href="#" class="logo"> <i class="fas fa-book"></i> YourBookLibrary </a>
+
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+
+            <div id="search-btn" class="fas fa-search"></div>
+            <a style="font-size: 16px;" href="../index.html">Home</a>
+            <a style="font-size: 16px;" href="../index.html">Featured</a>
+            <a style="font-size: 16px;" href="../index.html">Arrivals</a>
+            <a style="font-size: 16px;" href="#reviews">Contact Us</a>
+
+            <div class="dropdown">
+             <a style="font-size: 16px;" href="#blogs" class="dropdown-btn">Genre</a>
+                <div class="dropdown-menu">
+                <a href="_self">HISTORICAL</a>
+                <a href="#">SLICE OF LIFE</a>
+                <a href="#">ROMANCE</a>
+                <a href="#">COMEDY</a>
+                <a href="#">SCI-FI</a>
+                <a href="#">THRILLER</a>
+            </div>
+        </div>
+            <a href="bookmark/index.html" class="fas fa-heart"></a>
+            <div id="login-btn" class="fas fa-user"></div>
+        </div>
+    </div>
+
+   
+</header>
+    <h1> BOOKMARKS </h1>
+    <table>
+        <thead>
+            <tr>
+               <th> BOOKS </th>
+               <th> TITLE </th>
+               <th> AUTHOR </th>
+               <th> GENRES </th>
+               <th> SUMMARY </th>
+               <th> YEAR </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="book9.jpg" width="70"/></td>
+                <td>Walking The Dead</td>
+                <td>Yvette Tan</td>
+                <td>Horror</td>
+                <td>A collection of short horror stories exploring Filipino cultural myths and everyday fears. The stories are known for their subtle eeriness and psychological depth.</td>
+                <td>2009</td>
+                <td><button class="remove-btn" onclick="removeRow(this)">X</button></td>
+            </tr>
+            <tr>
+                <td><img src="book6.jpg" width="70"/></td>
+                <td>The Ghost Bride</td>
+                <td>Yangsze Choo</td>
+                <td>Historical Fantasy, Romance</td>
+                <td>Set in 1890s Malaysia, involving ghosts, forbidden love, and family secrets.</td>
+                <td>2013</td>
+                <td><button class="remove-btn" onclick="removeRow(this)">X</button></td>
+            </tr>
+            <tr>
+                <td><img src="book7.jpg" width="70"/></td>
+                <td>A Promise of Fire</td>
+                <td>Amanda Bouchet</td>
+                <td>Fantasy, Romance, Mythology</td>
+                <td>Features Cat, a magical "Kingmaker," caught in political struggles and a growing bond with Griffin.</td>
+                <td>2016</td>
+                <td><button class="remove-btn" onclick="removeRow(this)">X</button></td>
+            </tr>
+                <td><img src="book4.jpg" width="70"/></td>
+                <td>From Blood and Ash</td>
+                <td>Jennifer L. Armentrout</td>
+                <td>Fantasy, Romance, Adventure</td>
+                <td>Follows Poppy, a Maiden, as she navigates duty, forbidden love, and her kingdom's mysteries.</td>
+                <td>2020</td>
+                <td><button class="remove-btn" onclick="removeRow(this)">X</button></td>
+            </tr>
+            <tr>
+                <td><img src="book5.jpg" width="70"/></td>
+                <td>The Night Ship</td>
+                <td>Jess Kidd</td>
+                <td>Historical, Thriller, Adventure</td>
+                <td>Intertwines 1629 and 1989 timelines with shipwreck mysteries and mythological monsters.</td>
+                <td>2022</td>
+                <td><button class="remove-btn" onclick="removeRow(this)">X</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

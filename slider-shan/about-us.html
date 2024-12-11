@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <style>
+        /* Full-width navbar */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 15px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .header-1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a3826;
+            text-decoration: none;
+        }
+
+        /* Search form */
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-form input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #966b46;
+        }
+
+        /* Navbar links */
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icons a {
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .icons a:hover {
+            color: #966b46;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 10px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f4f4f4;
+        }
+
+        /* Content margin to avoid overlap with fixed navbar */
+        .container {
+            margin-top: 80px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header-1 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .icons {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .search-form {
+                margin-top: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-1">
+            <a href="#" class="logo"> <i class="fas fa-book"></i> YourBookLibrary </a>
+
+            <form action="" class="search-form">
+                <input type="search" name="" placeholder="search here..." id="search-box">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+                <div class="icons">
+                <a href="../index.html">Home</a>
+                <a href="../index.html">Featured</a>
+                <a href="../index.html">Arrivals</a>
+                <a href="../slider-shan/about-us.html">About Us</a>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-btn">Genre</a>
+                    <div class="dropdown-menu">
+                        <a href="../books/landing.html">FANTASY</a>
+                        <a href="#">HISTORICAL</a>
+                        <a href="#">SLICE OF LIFE</a>
+                        <a href="#">ROMANCE</a>
+                        <a href="#">COMEDY</a>
+                        <a href="#">SCI-FI</a>
+                        <a href="#">THRILLER</a>
+                    </div>
+                </div>
+
+                <a href="bookmark/index.html" class="fas fa-heart"></a>
+                <div id="login-btn" class="fas fa-user"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="heading">About Us</h1>
+        <div class="login-form">
+            <p1 class="para">At YourbookLibrary, we are committed to providing a welcoming, accessible, and enriching space for all your learning and reading needs. Our library boasts an extensive collection of books, journals, multimedia resources, and more, ensuring that whether you’re a student, professional, or casual reader, you'll find something to suit your interests and needs. From the latest bestsellers to rare academic texts, we are proud to offer resources that inspire, inform, and entertain.</p1>
+            <br>
+            <br>
+            <p2 class="para">With our convenient online reservation system, you can easily browse our collection and secure books, study spaces, and other library services from the comfort of your own home or on the go. No more waiting in long lines or hoping your favorite title is available! Simply check the availability of your desired items, reserve them in just a few clicks, and pick them up at your convenience.</p2>
+            <br>
+            <br>
+            <div class="team">
+                <p style="color:white">Meet the Team</p>
+            </div>
+            <p class="list">Our dedicated team consists of:</p>
+            <ol class="item">
+                <li>Experienced librarians</li>
+                <li>Tech-savvy developers</li>
+                <li>Passionate educators</li>
+                <li>Committed volunteers</li>
+                <br>
+                <li><a href="index.html" target="self">Learn more</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

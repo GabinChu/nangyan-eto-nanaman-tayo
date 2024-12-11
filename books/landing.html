@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Books Slider</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+      <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+
+  <style>
+    /* Custom styles for the slider */
+    .swiper-button-next, .swiper-button-prev {
+      border: 1px solid #ddd;
+      height: 30px;
+      width: 30px;
+      background: white;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      border-radius: 50%;
+      z-index: 10;
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.3s ease; /* Smooth transition for opacity */
+    }
+
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background-color: #333;
+      color: white;
+    }
+
+    .swiper:hover .swiper-button-next,
+    .swiper:hover .swiper-button-prev {
+      opacity: 1; /* Show buttons when hovered */
+    }
+
+    /* Center the heading */
+    .heading {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Add subtitle and center it */
+    .subtitle {
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .featured .featured-slider .box {
+      margin: 1rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      width: 100%;
+      transform: scale(0.85); /* Scale down the books */
+      cursor: pointer; /* Show pointer on hover */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    }
+
+    /* Hover effect for each book */
+    .featured .featured-slider .box:hover {
+      transform: scale(1.05); /* Slightly zoom in on hover */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+    }
+
+    .featured .featured-slider .box .image {
+      padding: 1rem;
+      background: linear-gradient(15deg, #eee 30%, #fff 30.1%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .featured .featured-slider .box .image img {
+      max-width: 100%;
+      max-height: 15rem; /* Adjusted size for smaller images */
+      object-fit: contain; /* Ensure the whole image is visible */
+    }
+
+    /* Custom styles for the box and images */
+    .featured .featured-slider .box .content {
+      background: #eee;
+      padding: 1rem;
+    }
+
+    .featured .featured-slider .box .content h3 {
+      font-size: 1.2rem; /* Smaller heading */
+      color: #333;
+    }
+
+    .featured .featured-slider .box .content .price {
+      font-size: 1.5rem; /* Smaller price font */
+      color: #333;
+      padding-top: 1rem;
+    }
+
+    .featured .featured-slider .box .content .price span {
+      font-size: 1.1rem; /* Smaller strikethrough font */
+      color: #999;
+      text-decoration: line-through;
+    }
+
+    /* Button styling */
+    .featured .featured-slider .box .content .btn {
+      display: inline-block;
+      background-color: #007bff; /* Blue color */
+      color: white;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem; /* Larger padding */
+      text-decoration: none;
+      border-radius: 50px; /* Rounded corners */
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    /* Hover effect */
+    .featured .featured-slider .box .content .btn:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+      transform: scale(1.1); /* Make the button slightly bigger */
+    }
+
+    /* Grid layout for the books */
+    @media (max-width: 1024px) {
+      .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Smaller columns */
+        gap: 0.8rem; /* Smaller gap between items */
+      }
+    }
+
+    /* Separator between sections */
+    .separator {
+      border-top: 1px solid #ddd;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 15px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .header-1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a3826;
+            text-decoration: none;
+        }
+
+        /* Search form */
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-form input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #966b46;
+        }
+
+        /* Navbar links */
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icons a {
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .icons a:hover {
+            color: #966b46;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 10px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f4f4f4;
+        }
+
+        /* Content margin to avoid overlap with fixed navbar */
+        .container {
+            margin-top: 80px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header-1 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .icons {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .search-form {
+                margin-top: 10px;
+            }
+        }
+
+
+  </style>
+
+</head>
+<body>
+
+
+   <header class="header">
+        <div class="header-1">
+            <a href="#" class="logo"> <i class="fas fa-book"></i> YourBookLibrary </a>
+
+
+            <div class="icons">
+                <a href="../index.html">Home</a>
+                <a href="../index.html">Featured</a>
+                <a href="../index.html">Arrivals</a>
+                <a href="../slider-shan/about-us.html">About Us</a>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-btn">Genre</a>
+                    <div class="dropdown-menu">
+                        <a href="../books/landing.html">FANTASY</a>
+                        <a href="#">HISTORICAL</a>
+                        <a href="#">SLICE OF LIFE</a>
+                        <a href="#">ROMANCE</a>
+                        <a href="#">COMEDY</a>
+                        <a href="#">SCI-FI</a>
+                        <a href="#">THRILLER</a>
+                    </div>
+                </div>
+
+                <a href="bookmark/index.html" class="fas fa-heart"></a>
+                <div id="login-btn" class="fas fa-user"></div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+  <section class="featured" id="featured">
+    <h1 class="heading"> <span>Featured Books</span> </h1>
+    <div class="subtitle">Genre: Fiction</div>
+
+    <div class="swiper featured-slider">
+      <div class="swiper-wrapper">
+        
+        <!-- Wrap each book with an anchor to make it clickable -->
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/books/image/42844155.jpg" alt="Book 1">
+          </div>
+          <div class="content">
+            <h3>Harry Potter and the Sorcerer’s Stone</h3>
+            <div class="price">Genre: Fiction</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/books/image/2767052.jpg" alt="Book 2">
+          </div>
+          <div class="content">
+            <h3>The Hunger Games</h3>
+            <div class="price">Genre: Fiction</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/books/image/1.jpg" alt="Book 3">
+          </div>
+          <div class="content">
+            <h3>The Hobbit, or There and Back Againo</h3>
+            <div class="price">Genre: Fiction</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <!-- Add more books here -->
+
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Separator -->
+  <div class="separator"></div>
+
+  <section class="featured" id="featured">
+    <div class="subtitle">Genre: Historical</div>
+
+    <div class="swiper featured-slider">
+      <div class="swiper-wrapper">
+        
+        <!-- Wrap each book with an anchor to make it clickable -->
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/11.jpg" alt="Book 1">
+          </div>
+          <div class="content">
+            <h3>The Song of Achilles</h3>
+            <div class="price">Genre: Historical</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/22.jpg" alt="Book 2">
+          </div>
+          <div class="content">
+            <h3>All the Light We Cannot See</h3>
+            <div class="price">Genre: Historical</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/333.jpg" alt="Book 3">
+          </div>
+          <div class="content">
+            <h3>To Kill a Mockingbird</h3>
+            <div class="price">Genre:Historical</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <!-- Add more books here -->
+
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Separator -->
+  <div class="separator"></div>
+
+  <section class="featured" id="featured">
+    <div class="subtitle">Genre:Sci-fi</div>
+
+    <div class="swiper featured-slider">
+      <div class="swiper-wrapper">
+        
+        <!-- Wrap each book with an anchor to make it clickable -->
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/44.jpg" alt="Book 1">
+          </div>
+          <div class="content">
+            <h3>Dune</h3>
+            <div class="price">Genre: Sci-fi</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/55.jpg" alt="Book 2">
+          </div>
+          <div class="content">
+            <h3>Ready Player One</h3>
+            <div class="price">Genre: Sci-fi</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/66.jpg" alt="Book 3">
+          </div>
+          <div class="content">
+            <h3>The Martian</h3>
+            <div class="price">Genre: Sci-fi</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <!-- Add more books here -->
+
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Separator -->
+  <div class="separator"></div>
+
+  <section class="featured" id="featured">
+    <div class="subtitle">Genre: Fantasy</div>
+
+    <div class="swiper featured-slider">
+      <div class="swiper-wrapper">
+        
+        <!-- Wrap each book with an anchor to make it clickable -->
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/77.jpg" alt="Book 1">
+          </div>
+          <div class="content">
+            <h3>A Game of Thrones</h3>
+            <div class="price">Genre:Fantasy</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/88.jpg" alt="Book 2">
+          </div>
+          <div class="content">
+            <h3>A Court of Thorns and Roses</h3>
+            <div class="price">Genre:Fantasy</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/99.jpg" alt="Book 3">
+          </div>
+          <div class="content">
+            <h3>Harry Potter and the Goblet of Fire</h3>
+            <div class="price">Genre:Fantasy</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <!-- Add more books here -->
+
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Separator -->
+  <div class="separator"></div>
+
+  <section class="featured" id="featured">
+    <div class="subtitle">Genre: Romance</div>
+
+    <div class="swiper featured-slider">
+      <div class="swiper-wrapper">
+        
+        <!-- Wrap each book with an anchor to make it clickable -->
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/111.jpg" alt="Book 1">
+          </div>
+          <div class="content">
+            <h3>Twilight</h3>
+            <div class="price">Genre:Romance</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/222.jpg" alt="Book 2">
+          </div>
+          <div class="content">
+            <h3>Happy Place</h3>
+            <div class="price">Genre:Romance</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <a href="#" class="swiper-slide box">
+          <div class="image">
+            <img src="/image/444.jpg" alt="Book 3">
+          </div>
+          <div class="content">
+            <h3>Breaking Dawn</h3>
+            <div class="price">Genre:Romance</div>
+            <span class="btn">Bookmark</span>
+          </div>
+        </a>
+
+        <!-- Add more books here -->
+
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Separator -->
+  <div class="separator"></div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  
+  <script>
+    var swiper = new Swiper(".featured-slider", {
+      loop: true,
+      spaceBetween: 10,
+      centeredSlides: true,
+      autoplay: {
+        delay: 9500,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        450: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+    });
+  </script>
+
+</body>
+</html>

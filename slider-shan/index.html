@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us Cards</title>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+       <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+          <style>
+        /* Ensure the header is fixed at the top */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 15px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a3826;
+            text-decoration: none;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-form input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #966b46;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icons a {
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .icons a:hover {
+            color: #966b46;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 10;
+            min-width: 160px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 10px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f4f4f4;
+        }
+
+        .swiper-container {
+            margin-top: 80px;
+        }
+
+        .card {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+
+
+</head>
+<body>
+
+        <!-- Navbar -->
+    <header class="header">
+        <div class="header-1">
+            <a href="#" class="logo">YourBookLibrary</a>
+
+            <form action="" class="search-form">
+                <input type="search" name="" placeholder="search here..." id="search-box">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+            <div class="icons">
+                <a href="../index.html">Home</a>
+                <a href="#featured">Featured</a>
+                <a href="#arrivals">Arrivals</a>
+                <a href="#reviews">Contact Us</a>
+
+                <!-- Dropdown Menu for Genre -->
+                <div class="dropdown">
+                    <a href="#" class="dropdown-btn">Genre</a>
+                    <div class="dropdown-menu">
+                        <a href="#">FANTASY</a>
+                        <a href="#">HISTORICAL</a>
+                        <a href="#">SLICE OF LIFE</a>
+                        <a href="#">ROMANCE</a>
+                        <a href="#">COMEDY</a>
+                        <a href="#">SCI-FI</a>
+                        <a href="#">THRILLER</a>
+                    </div>
+                </div>
+
+                <a href="bookmark/index.html" class="fas fa-heart"></a>
+                <div id="login-btn" class="fas fa-user"></div>
+            </div>
+        </div>
+    </header>
+     <section class="swiper mySwiper">
+  <div class="swiper-wrapper">
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user1.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Librarian</span>
+    <span class="card__name" style="color:black">Rosales, George David Q.</span>
+    <p class="card__text">Head director of managing literature and publications.</p>
+    <audio class="audio-player" controls>
+      <source src="gorge.mp3" type="audio/mp3">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user2.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Ui Designer</span>
+    <span class="card__name" style="color:black">Sagales, Eicell Ann N.</span>
+    <p class="card__text">Responsible for adding bookmarks with the help of her teammate.</p>
+    <audio class="audio-player" controls>
+      <source src="saga.mp3" type="audio/mp3">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user3.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Assistant</span>
+    <span class="card__name" style="color:black">Sengco, Casius Clay V.</span>
+    <p class="card__text">Index collaborator of Tongco</p>
+    <audio class="audio-player" controls>
+      <source src="se.aac" type="audio/aac">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user4.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Assistant</span>
+    <span class="card__name" style="color:black">Tinaza, Lanz Andrew D.</span>
+    <p class="card__text">Literature contributor of Rosales</p>
+    <audio class="audio-player" controls>
+      <source src="la.aac" type="audio/aac">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user5.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Co-Developer</span>
+    <span class="card__name" style="color:black">Toledo, Shanina E.</span>
+    <p class="card__text">Responsible for the design and login registration of our website, providing insightful feedback and skills.</p>
+    <audio class="audio-player" controls>
+      <source src="sha.mp3" type="audio/mp3">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user6.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Head Developer</span>
+    <span class="card__name" style="color:black">Tongco, Javhen Aiken</span>
+    <p class="card__text">responsible for the positions and directions, creator of our Index.</p>
+    <audio class="audio-player" controls>
+      <source src="ken.aac" type="audio/aac">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user7.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Web Developer</span>
+    <span class="card__name" style="color:black">Trinidad, Shan Asha</span>
+    <p class="card__text">Feedbacker and brainstormer, responsible for the about us section and this card slider.</p>
+    <audio class="audio-player" controls>
+      <source src="trinidad_record.mp3" type="audio/mp3">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user8.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Assistant</span>
+    <span class="card__name" style="color:black">Villas, Shaira Mae E.</span>
+    <p class="card__text">Bookmark collaborator of Sagales</p>
+    <audio class="audio-player" controls>
+      <source src="saga.mp3" type="audio/mp3">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user9.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Assistant Developer</span>
+    <span class="card__name" style="color:black">Vistan, Alyssa Marie G.</span>
+    <p class="card__text">Collaborator of Trinidad, responsible for website linking</p>
+    <audio class="audio-player" controls>
+      <source src="vistan.mp3" type="audio/mp3">
+    </audio>
+  </div>
+</div>
+
+<div class="card swiper-slide">
+  <div class="card__image">
+    <img src="user10.jpg" alt="card image">
+  </div>
+  <div class="card__content">
+    <span class="card__title" style="color:black">Web Developer</span>
+    <span class="card__name" style="color:black">Wagas, Rhojoun W.</span>
+    <p class="card__text">Literature contributor of Rosales.</p>
+    <audio class="audio-player" controls>
+      <source src="waga.aac" type="audio/aac">
+    </audio>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<script>
+  function playAudio(id) {
+    var audio = document.getElementById(id);
+    audio.play();
+  }
+</script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+                slideShadows: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script>
+
+</body>
+</html>
